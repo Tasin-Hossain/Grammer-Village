@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+body { background: #F6FAF5; color: #12231B; font-family: var(--font-body), system-ui, sans-serif; line-height: 1.7; }
+:focus-visible { outline: 3px solid #F5C842; outline-offset: 2px; border-radius: 4px; }
+
+@layer components {
+  /* Exercise-book ruling: the visual idea of the whole site */
+  .ruled {
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, transparent 35px, #CFE0D6 35px, #CFE0D6 36px);
+    background-size: 100% 36px;
+  }
+  .margin-line { position: relative; }
+  .margin-line::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 2.75rem;
+    width: 2px; background: #B3202A; opacity: .5;
+  }
+  /* highlighter-pen strip behind section titles */
+  .marker {
+    background-image: linear-gradient(transparent 62%, var(--mk, rgba(245,200,66,.7)) 62%);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .2em; margin-left: -.2em;
+  }
+  .dots { background-image: radial-gradient(rgba(255,255,255,.09) 1.5px, transparent 1.5px); background-size: 22px 22px; }
+  .squiggle { text-decoration: underline wavy #B3202A; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition-colors duration-200; }
+  .btn-primary { @apply btn bg-forest text-white hover:bg-forest-deep; }
+  .btn-pencil { @apply btn bg-pencil text-ink hover:bg-[#ffd95e]; }
+  .btn-ghost { @apply btn border-2 border-forest text-forest hover:bg-forest hover:text-white; }
+  .field { @apply w-full rounded-lg border-2 border-line bg-white px-4 py-3 text-ink placeholder:text-ink/40 focus:border-forest focus:outline-none; }
+  .chip { @apply rounded-full border-2 border-line bg-white px-4 py-1.5 text-sm font-semibold transition-colors; }
+  .chip[aria-pressed="true"], .chip[aria-selected="true"] { @apply border-forest bg-forest text-white; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
