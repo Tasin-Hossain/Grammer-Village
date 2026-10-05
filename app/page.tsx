@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Courses } from "@/components/Courses";
 import { WhyUs } from "@/components/WhyUs";
@@ -8,24 +7,19 @@ import { Notices } from "@/components/Notices";
 import { Videos } from "@/components/Videos";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Courses />
-        <WhyUs />
-        <SkillTest />
-        <KidsLand />
-        <Notices />
-        <Videos />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <Hero />
+      <Courses />
+      <WhyUs />
+      <SkillTest />
+      <KidsLand />
+      <Notices />
+      <Videos />
+      <About />
+      <Contact />
+    </main>
   );
 }

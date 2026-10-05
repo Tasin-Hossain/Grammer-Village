@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { heroSentences } from "@/lib/content";
 import { useLang } from "./LangProvider";
@@ -38,16 +39,16 @@ export function Hero() {
             })}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#courses" className="btn-primary">{t({ en: "See courses", bn: "কোর্স দেখুন" })}</a>
+            <Link href="/courses" className="btn-primary">{t({ en: "See courses", bn: "কোর্স দেখুন" })}</Link>
             <a href="#skill-test" className="btn-ghost">{t({ en: "Take the free skill test", bn: "বিনামূল্যে দক্ষতা পরীক্ষা দিন" })}</a>
           </div>
         </div>
 
         {/* The memorable moment: a page from an exercise book you can correct yourself */}
         <div className="relative animate-rise [animation-delay:.15s]">
-          <span aria-hidden className="absolute -right-3 -top-7 z-10 grid h-14 w-14 rotate-[9deg] place-items-center rounded-xl border-2 border-ink bg-pencil font-display text-3xl font-extrabold shadow-[3px_3px_0_#12231B]">A</span>
-          <span aria-hidden className="absolute -bottom-6 -left-5 z-10 hidden h-14 w-14 -rotate-[10deg] place-items-center rounded-xl border-2 border-ink bg-[#F4B6B0] font-display text-3xl font-extrabold shadow-[3px_3px_0_#12231B] sm:grid">b</span>
-          <div className="ruled margin-line -rotate-1 rounded-xl border border-line p-6 pl-16 shadow-[0_18px_40px_-18px_rgba(6,48,31,.35)] sm:p-8 sm:pl-20">
+          <span aria-hidden className="absolute -right-3 -top-7 z-10 grid h-14 w-14 rotate-[9deg] place-items-center rounded-xl border-2 border-ink bg-pencil font-display text-3xl font-extrabold shadow-pop-ink">A</span>
+          <span aria-hidden className="absolute -bottom-6 -left-5 z-10 hidden h-14 w-14 -rotate-[10deg] place-items-center rounded-xl border-2 border-ink bg-blush font-display text-3xl font-extrabold shadow-pop-ink sm:grid">b</span>
+          <div className="ruled margin-line -rotate-1 rounded-xl border border-line p-6 pl-16 shadow-sheet sm:p-8 sm:pl-20">
             <p className="font-hand text-2xl text-margin">
               {t({ en: "Tap the mistake and fix it:", bn: "ভুলটিতে ট্যাপ করে ঠিক করুন:" })}
             </p>
@@ -56,13 +57,13 @@ export function Hero() {
               {s.parts.map((w, idx) =>
                 idx === s.wrong ? (
                   fixed ? (
-                    <span key={idx} className="rounded bg-leaf/15 px-1 text-leaf">{s.answer} </span>
+                    <span key={idx} className="rounded-sm bg-leaf/15 px-1 text-leaf">{s.answer} </span>
                   ) : (
                     <button
                       key={idx}
                       onClick={() => setPicking(!picking)}
                       aria-expanded={picking}
-                      className="squiggle mr-2 rounded px-0.5 hover:bg-margin/10"
+                      className="squiggle mr-2 rounded-sm px-0.5 hover:bg-margin/10"
                     >
                       {w}
                     </button>
@@ -76,7 +77,7 @@ export function Hero() {
             {picking && !fixed && (
               <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Choose the correct word">
                 {s.options.map((o) => (
-                  <button key={o} onClick={() => choose(o)} className="chip !text-base">{o}</button>
+                  <button key={o} onClick={() => choose(o)} className="chip text-base!">{o}</button>
                 ))}
               </div>
             )}

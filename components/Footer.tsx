@@ -1,5 +1,6 @@
 "use client";
-import { courses, nav, site } from "@/lib/content";
+import Link from "next/link";
+import { courses, nav, navHref, site } from "@/lib/content";
 import { useLang } from "./LangProvider";
 
 export function Footer() {
@@ -14,11 +15,11 @@ export function Footer() {
           </div>
           <div>
             <p className="font-semibold text-white">{t({ en: "Courses", bn: "কোর্স" })}</p>
-            <ul className="mt-2 space-y-1 text-sm">{courses.map((c) => <li key={c.id}><a href="#courses" className="hover:text-white">{t(c.classes)}</a></li>)}</ul>
+            <ul className="mt-2 space-y-1 text-sm">{courses.map((c) => <li key={c.id}><Link href={`/courses#${c.id}`} className="hover:text-white">{t(c.classes)}</Link></li>)}</ul>
           </div>
           <div>
             <p className="font-semibold text-white">{t({ en: "Quick links", bn: "দ্রুত লিংক" })}</p>
-            <ul className="mt-2 space-y-1 text-sm">{nav.map((n) => <li key={n.id}><a href={`#${n.id}`} className="hover:text-white">{t(n.label)}</a></li>)}</ul>
+            <ul className="mt-2 space-y-1 text-sm">{nav.map((n) => <li key={n.id}><Link href={navHref(n.id)} className="hover:text-white">{t(n.label)}</Link></li>)}</ul>
           </div>
         </div>
         <p className="border-t border-white/10 py-5 text-center text-sm">© {new Date().getFullYear()} {site.name}</p>
@@ -26,7 +27,7 @@ export function Footer() {
       <a
         href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-2xl text-white shadow-lg"
+        className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-2xl text-white shadow-lg"
       >
         💬
       </a>

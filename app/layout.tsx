@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hind_Siliguri, Caveat } from "next/font/google";
+import { Fraunces, Hind_Siliguri, Caveat } from "next/font/google";
 import { LangProvider } from "@/components/LangProvider";
-import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import "@/styles/globals.css";
 
-const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display", display: "swap" });
-const body = Hind_Siliguri({ subsets: ["bengali", "latin"], weight: ["400", "500", "600", "700"], variable: "--font-body", display: "swap" });
-const hand = Caveat({ subsets: ["latin"], variable: "--font-hand", display: "swap" });
+const display = Fraunces({ subsets: ["latin"], axes: ["opsz"], variable: "--font-fraunces", display: "swap" });
+const body = Hind_Siliguri({ subsets: ["bengali", "latin"], weight: ["400", "500", "600", "700"], variable: "--font-hind", display: "swap" });
+const hand = Caveat({ subsets: ["latin"], variable: "--font-caveat", display: "swap" });
 
 const url = "https://www.grammarvillage.com";
 
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
     url,
     siteName: "Grammar Village",
     type: "website",
-    images: ["/images/logo.png"],
+    images: ["/logo/logo.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -32,7 +34,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${hand.variable}`}>
       <body>
-        <LangProvider>{children}</LangProvider>
+        <LangProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LangProvider>
       </body>
     </html>
   );

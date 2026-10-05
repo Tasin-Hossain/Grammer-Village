@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { quiz } from "@/lib/content";
 import { useLang } from "./LangProvider";
@@ -57,7 +58,7 @@ export function SkillTest() {
             <p className="font-display text-6xl font-extrabold text-forest">{score}/{quiz.length}</p>
             <p className="mt-3 text-xl font-semibold">{t(result)}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#courses" className="btn-primary">{t({ en: "See matching courses", bn: "মানানসই কোর্স দেখুন" })}</a>
+              <Link href="/courses" className="btn-primary">{t({ en: "See matching courses", bn: "মানানসই কোর্স দেখুন" })}</Link>
               <button onClick={restart} className="btn-ghost">{t({ en: "Try again", bn: "আবার দিন" })}</button>
             </div>
           </div>

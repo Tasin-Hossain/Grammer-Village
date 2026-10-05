@@ -1,0 +1,75 @@
+/* Design tokens. Edit the values in :root, Tailwind picks them up. */
+
+/* Fonts: next/font injects --font-fraunces / --font-hind / --font-caveat */
+@theme inline {
+  --font-display: var(--font-fraunces), var(--font-hind), sans-serif;
+  --font-body: var(--font-hind), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-soft: var(--forest-soft);
+  --color-leaf: var(--leaf);
+  --color-margin: var(--margin);
+  --color-pencil: var(--pencil);
+  --color-pencil-light: var(--pencil-light);
+
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+
+  /* soft tints for cards and tiles */
+  --color-blush: var(--blush);
+  --color-mint: var(--mint);
+  --color-sky: var(--sky);
+  --color-whatsapp: var(--whatsapp);
+}
+
+/* Not "inline": shadows and animations stay as normal theme variables */
+@theme {
+  /* hard "sticker" shadows */
+  --shadow-pop-xs: 2px 2px 0 var(--forest-deep);
+  --shadow-pop-sm: 3px 3px 0 var(--forest-deep);
+  --shadow-pop-md: 4px 4px 0 var(--forest-deep);
+  --shadow-pop-lg: 6px 6px 0 var(--forest-deep);
+  --shadow-pop-ink: 3px 3px 0 var(--ink);
+  --shadow-pop-gold: 8px 8px 0 var(--pencil);
+  /* soft lift under the notebook card */
+  --shadow-sheet: 0 18px 40px -18px rgb(6 48 31 / 0.35);
+
+  --animate-shake: shake 0.3s ease-in-out;
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px) rotate(-1deg); }
+    to { opacity: 1; transform: translateY(0) rotate(0); }
+  }
+}
+
+:root {
+  color-scheme: light;
+
+  --forest: #0a4d32;
+  --forest-deep: #06301f;
+  --forest-soft: #e3f0e8;
+  --leaf: #1e8a57;
+  --margin: #b3202a;
+  --pencil: #f5c842;
+  --pencil-light: #ffd95e;
+
+  --paper: #f6faf5;
+  --card: #ffffff;
+  --ink: #12231b;
+  --line: #cfe0d6;
+
+  --blush: #f4b6b0;
+  --mint: #bfe3cf;
+  --sky: #bcddee;
+  --whatsapp: #25d366;
+}

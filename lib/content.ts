@@ -36,6 +36,9 @@ export const nav: { id: string; label: L }[] = [
   { id: "contact", label: { en: "Contact", bn: "যোগাযোগ" } },
 ];
 
+// Courses live on their own page; every other section is an anchor on the home page.
+export const navHref = (id: string) => (id === "courses" ? "/courses" : `/#${id}`);
+
 export const heroSentences = [
   {
     parts: ["Yesterday", "she", "go", "to", "school", "by", "rickshaw."],

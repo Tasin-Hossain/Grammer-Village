@@ -12,7 +12,7 @@ function shuffle<T>(a: T[]) {
   return b;
 }
 
-const tile = ["bg-pencil", "bg-[#F4B6B0]", "bg-[#BFE3CF]", "bg-[#BCDDEE]"];
+const tile = ["bg-pencil", "bg-blush", "bg-mint", "bg-sky"];
 
 export function KidsLand() {
   const { t } = useLang();
@@ -41,7 +41,7 @@ export function KidsLand() {
       title={t({ en: "Kids Land: build the sentence", bn: "কিডস ল্যান্ড: বাক্যটি সাজান" })}
       intro={t({ en: "Tap the words in the right order.", bn: "শব্দগুলো সঠিক ক্রমে ট্যাপ করুন।" })}
     >
-      <div className="max-w-2xl rounded-2xl border-2 border-ink bg-white p-6 text-ink shadow-[8px_8px_0_#F5C842]">
+      <div className="max-w-2xl rounded-2xl border-2 border-ink bg-white p-6 text-ink shadow-pop-gold">
         <p className="text-sm font-semibold text-ink/60">{t({ en: `Round ${round + 1} of ${sentenceGame.length}`, bn: `রাউন্ড ${round + 1} / ${sentenceGame.length}` })}</p>
 
         <div className="mt-3 flex min-h-[64px] flex-wrap gap-2 rounded-xl border-2 border-dashed border-line p-3" aria-label="Your sentence">
@@ -53,7 +53,7 @@ export function KidsLand() {
 
         <div className="mt-4 flex flex-wrap gap-2" aria-label="Word choices">
           {pool.map((p) => (
-            <button key={p.id} onClick={() => add(p)} className={`${tile[p.id % 4]} rounded-lg border-2 border-ink px-4 py-2 text-lg font-semibold shadow-[3px_3px_0_#12231B] transition-transform hover:-translate-y-0.5 ${p.id % 2 ? "rotate-1" : "-rotate-1"}`}>{p.w}</button>
+            <button key={p.id} onClick={() => add(p)} className={`${tile[p.id % 4]} rounded-lg border-2 border-ink px-4 py-2 text-lg font-semibold shadow-pop-ink transition-transform hover:-translate-y-0.5 ${p.id % 2 ? "rotate-1" : "-rotate-1"}`}>{p.w}</button>
           ))}
         </div>
 

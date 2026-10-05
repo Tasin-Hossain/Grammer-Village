@@ -8,6 +8,7 @@
 ## Where to edit
 - lib/content.ts  -> all text (English + Bangla), courses, notices, videos, offer banner, contact info
 - components/*    -> one file per section
+- styles/theme.css -> colors, shadows, animations (Tailwind v4, no tailwind.config)
 - app/api/inquiry/route.ts -> contact form handler (TODO: send email / save to DB)
 - components/LoginModal.tsx -> TODO: connect real auth
 
